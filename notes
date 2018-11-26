@@ -1,0 +1,45 @@
+1.jenkoins:
+copy /y D:\Jenkins\workspace\TermManagement_API_Test\Term_TestCase\API_Test\Resources\ServerKey-%Env%.txt D:\Jenkins\workspace\TermManagement_API_Test\Term_TestCase\API_Test\Resources\ServerKey_d2.txt
+
+cmd /c C:\Python27\Scripts\pybot.bat D:\Jenkins\workspace\TermManagement_API_Test\Term_TestCase\API_Test\接口测试用例
+exit 0
+
+2.jmeter:
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+String card1= vars.get("termbaseId");
+String card = card1 + "\r\n";  
+
+try{
+File file = new File("E:\\myself\\Term\\Alpha\\data\\termbaseIdwithoutflie.txt");
+if (!file.exists())
+{ 
+file.createNewFile();
+}  
+BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file.getAbsolutePath()), "UTF-8"));
+String str="";
+boolean isExist=false; 
+while ((str=bufferedReader.readLine())!=null)
+{ 
+if (str.trim().equals(card))
+{
+isExist=true;
+break;
+}
+}
+bufferedReader.close(); 
+if (!isExist)
+{
+FileOutputStream fos = new FileOutputStream(file.getAbsoluteFile(),true);//true表示在文件末尾追加  
+       fos.write(card.getBytes());  
+       fos.close();
+}
+}
+catch(IOException e)
+{
+e.printStackTrace();
+}
