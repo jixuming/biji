@@ -1,4 +1,4 @@
-1.jenkoins:
+1.jenkins:
 copy /y D:\Jenkins\workspace\TermManagement_API_Test\Term_TestCase\API_Test\Resources\ServerKey-%Env%.txt D:\Jenkins\workspace\TermManagement_API_Test\Term_TestCase\API_Test\Resources\ServerKey_d2.txt
 
 cmd /c C:\Python27\Scripts\pybot.bat D:\Jenkins\workspace\TermManagement_API_Test\Term_TestCase\API_Test\接口测试用例
