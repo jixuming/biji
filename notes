@@ -43,3 +43,11 @@ catch(IOException e)
 {
 e.printStackTrace();
 }
+
+3.postman:
+// 把responseBody转为json字符串
+var token = postman.getResponseHeader("X-Subject-Token");
+// 设置环境变量token，供后面的接口引X-Subject-Token用
+pm.environment.set("token", token); 
+//pm.globals.set("token", token); 
+
